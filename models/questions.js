@@ -18,6 +18,14 @@ const questionSchema = mongoose.Schema({
     },
     reply : {
         type: String
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
     }
 });
 
