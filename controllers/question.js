@@ -20,6 +20,6 @@ router.post('/', (req, res) => {
 
 router.delete('/', (req, res) => {
     deleteQuestion(req, res);
-})
+});
 
 module.exports = router;

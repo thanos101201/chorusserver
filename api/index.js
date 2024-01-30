@@ -3,6 +3,8 @@ const cors = require('cors');
 const user = require('../controllers/user');
 const otp = require('../controllers/otp');
 const question = require('../controllers/question');
+const reply = require('../controllers/reply');
+const history = require('../controllers/workingHistory');
 const app = express();
 
 app.use(cors({
@@ -27,6 +29,14 @@ app.use('/otp', (req, res) =>{
 
 app.use('/question', (req, res) => {
     question(req, res);
+});
+
+app.use('/history', (req, res) => {
+    history(req, res);
+});
+
+app.use('/reply',(req, res) => {
+    reply(req, res);
 });
 
 app.listen(3001, () => {

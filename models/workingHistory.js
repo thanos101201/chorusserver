@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const workingHistorySchema = mongoose.Schema({
-    email : {
+    questionId : {
         type: String
     },
     chat: {
