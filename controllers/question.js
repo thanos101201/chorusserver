@@ -4,6 +4,7 @@ const getList = require('../routers/question/getList');
 const post = require('../routers/question/post');
 const deleteQuestion = require('../routers/question/delete');
 const agreement = require('../routers/question/agreement');
+const getAll = require('../routers/question/getAll');
 
 const router = express.Router();
 
@@ -25,6 +26,10 @@ router.delete('/', (req, res) => {
 
 router.post('/aggreement', (req, res) => {
     agreement(req, res);
+});
+
+router.get('/all', (req, res) => {
+    getAll(req, res);
 })
 
 module.exports = router;
