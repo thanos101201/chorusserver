@@ -6,7 +6,7 @@ const question = require('../controllers/question');
 const reply = require('../controllers/reply');
 const history = require('../controllers/workingHistory');
 const app = express();
-
+require('../db/db');
 app.use(cors({
     origin: '*',
     methods: [
