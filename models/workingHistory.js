@@ -6,6 +6,10 @@ const workingHistorySchema = mongoose.Schema({
     },
     chat: {
         type: Array
+    },
+    users: {
+        type: Array,
+        default: []
     }
 });
 

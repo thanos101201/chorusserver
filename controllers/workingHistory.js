@@ -4,6 +4,7 @@ const post = require('../routers/workingHistory/post');
 const like = require('../routers/workingHistory/like');
 const dislike = require('../routers/workingHistory/dislike');
 const reward = require('../routers/workingHistory/reward');
+const joinHistory = require('../routers/workingHistory/joinHistory');
 
 const router = express.Router();
 
@@ -26,6 +27,10 @@ router.post('/dislike', (req, res) => {
 
 router.post('/reward', (req, res) => {
     reward(req, res);
+});
+
+router.post('/join', (req, res) => {
+    joinHistory(req, res);
 });
 
 module.exports = router;

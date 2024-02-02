@@ -20,6 +20,10 @@ const replySchema = mongoose.Schema({
     text: {
         type: String,
         required: true
+    },
+    users: {
+        type: Array,
+        default: []
     }
 });
 
