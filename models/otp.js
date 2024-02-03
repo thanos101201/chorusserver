@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const otpSchema = mongoose.Schema({
     otpNum : {
-        type: Number,
+        type: String,
         required: true
     },
     email : {

@@ -4,6 +4,7 @@ const userModel = require('../../models/user');
 const verify = (req, res) => {
     const otp = req.body.otp;
     const email = req.body.email;
+    console.log(`Email is : ${email}, OTP is : ${otp}`);
     otpModel.find({
         email: email
     }).then((resp1) => {

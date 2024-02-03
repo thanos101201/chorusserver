@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const otpModel = require('../../models/otp');
 
 const get = (req,res) => {
-    const otpNum = otpgen.generate(6, { upperCaseAlphabets: false, specialChars: false });
+    const otpNum = otpgen.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
     const email = req.headers.email;
     otpModel.find({
         email: email

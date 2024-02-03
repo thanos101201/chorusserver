@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    console.log('Routing here');
     verify(req, res);
 })
 
