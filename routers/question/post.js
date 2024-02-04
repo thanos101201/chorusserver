@@ -13,6 +13,7 @@ const post = (req, res) => {
             'message': 'Question added'
         });
     }).catch((er1) => {
+        console.log(er1);
         res.status(400).send(er1);
     })
 }

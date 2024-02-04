@@ -3,8 +3,9 @@ const replyModel = require("../../models/reply");
 const get = (req, res) => {
     const id = req.headers.id;
     replyModel.find({
-        _id: id
+        questionId : id
     }).then((resp1) => {
+        console.log(`resp1 is ${resp1.length}`);
         if(resp1.length === 0){
             res.status(204).send();
         }
