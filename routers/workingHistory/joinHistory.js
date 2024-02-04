@@ -1,28 +1,27 @@
+const questionModel = require("../../models/questions");
 const workingHistoryModel = require("../../models/workingHistory");
 
 const joinHistory = (req, res) => {
     let email = req.body.email;
-    let id = req.body.id;
+    let questionId = req.body.questionId;
 
-    workingHistoryModel.find({
-        _id: id
+    questionModel.find({
+        _id: questionId
     }).then((resp1) => {
         if(resp1.length === 0){
-            res.status(404).send({
-                'message': 'history not found'
-            });
+            res.status(204).send();
         }
         else{
-            let ar = resp1[0].users;
+            let ar = resp1[0].historyUsers;
             ar.push(email);
-            workingHistoryModel.updateOne({
-                _id: id
+            questionModel.updateOne({
+                _id: questionId
             }, {
-                users: ar
+                historyUsers: ar
             }).then((resp2) => {
                 res.status(200).send({
-                    'message': 'history joined'
-                })
+                    'message': 'User joined history'
+                });
             }).catch((er2) => {
                 res.status(400).send(er2);
             })

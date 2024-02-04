@@ -26,6 +26,14 @@ const questionSchema = mongoose.Schema({
     description: {
         type: String,
         required: true
+    },
+    replyUsers: {
+        type: Array,
+        default: []
+    },
+    historyUsers: {
+        type: Array,
+        default: []
     }
 });
 
