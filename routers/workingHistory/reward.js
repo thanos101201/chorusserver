@@ -16,7 +16,7 @@ const updatePoints = (ar) => {
 const reward = (req, res) => {
     const id = req.body.id;
     workingHistoryModel.find({
-        _id: id 
+        questionId: id 
     }).then((resp1) => {
         if(resp1.length === 0){
             res.status(404).send({
@@ -24,8 +24,9 @@ const reward = (req, res) => {
             });
         }
         else{
-            let ar = resp1[0].chats.sort((a,d) => {
-                return (a.upVotes.length - a.downVotes.length) - (b.upVotes.length - b.downVotes.length);
+            let ar = resp1.sort((a,b) => {
+                if((a.upVotes.length - a.downVotes.length) - (b.upVotes.length - b.downVotes.length))return true;
+                return false;
             });
             userModel.updateOne({
                 email: ar[ar.length - 1].email

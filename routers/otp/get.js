@@ -25,7 +25,7 @@ const get = (req,res) => {
                 var mailOptions = {
                     from: 'pratikthakur2019@gmail.com',
                     to: email,
-                    subject: "Lunch Time Otp",
+                    subject: "Chorus Otp",
                     text: `
                     Your Otp for email verification is ${otpNum}
                     `

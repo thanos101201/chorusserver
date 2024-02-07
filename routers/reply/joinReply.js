@@ -12,7 +12,7 @@ const joinReply = (req, res) => {
             res.status(204).send();
         }
         else{
-            if(resp1[0].replyUsers.indexOf(email) === -1){
+            if(resp1[0].replyUsers.indexOf(email) !== -1){
                 res.status(403).send({
                     'message': 'User already joind the reply'
                 });

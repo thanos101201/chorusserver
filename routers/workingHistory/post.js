@@ -4,22 +4,18 @@ const post = (req, res) => {
     const questionId = req.body.questionId;
     const email = req.body.email;
     const replyId = req.body.replyId;
+    const replyText = req.body.replyText
+
 
     let workm = new workingHistoryModel();
     workm.questionId = questionId;
-    let ar = [];
-    let data = {
-        upVotes: [],
-        downVotes: [],
-        replyId : replyId,
-        email: email
-    }
-    ar.push(data);
-    workm.chat = ar;
+    workm.email = email;
+    workm.replyId = replyId;
+    workm.replyText = replyText;
     
     workm.save().then((resp1) => {
         res.status(200).send({
-            'message': 'History id'
+            'message': 'History added'
         })
     }).catch((er1) => {
         res.status(400).send(er1);

@@ -2,14 +2,29 @@ const mongoose = require('mongoose');
 
 const workingHistorySchema = mongoose.Schema({
     questionId : {
-        type: String
+        type: String,
+        required: true
     },
-    chat: {
-        type: Array
+    replyId: {
+        type: String,
+        required: true,
+        unique: true
     },
-    users: {
+    replyText: {
+        type: String,
+        required: true
+    },
+    upVotes: {
         type: Array,
         default: []
+    },
+    downVotes: {
+        type: Array,
+        default: []
+    },
+    email: {
+        type: String,
+        required: true
     }
 });
 
