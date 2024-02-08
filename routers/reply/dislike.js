@@ -7,6 +7,7 @@ const dislike = (req, res) => {
     replyModel.find({
         _id: replyId
     }).then((resp1) => {
+        console.log(resp1);
         if(resp1.length === 0){
             res.status(404).send({
                 'message': 'Reply not found'
@@ -32,6 +33,20 @@ const dislike = (req, res) => {
                     res.status(200).send({
                         'message': 'Reply disliked'
                     })
+                })
+            }
+            else{
+                replyModel.updateOne({
+                    _id: replyId
+                }, {
+                    upVotes: likes,
+                    downVotes: dislikes
+                }).then((resp2) => {
+                    res.status(200).send({
+                        'message': 'Reply disliked'
+                    })
+                }).catch((er2) => {
+                    res.status(400).send(er2);
                 })
             }
         }
